@@ -7,8 +7,8 @@
 # Copyright (c) 2019 Markus Stenberg
 #
 # Created:       Tue Feb 12 13:12:42 2019 mstenber
-# Last modified: Tue Feb 12 13:33:50 2019 mstenber
-# Edit time:     5 min
+# Last modified: Tue Feb 12 14:41:59 2019 mstenber
+# Edit time:     7 min
 #
 """
 
@@ -16,9 +16,15 @@
 
 from setuptools import setup
 
+with open("README.md", "r") as fh:
+    long_description = fh.read()
+
+
 setup(name='starless',
-      version='0.1',
+      version='0.2',
       description='Star import eliminator',
+      long_description=long_description,
+      long_description_content_type="text/markdown",
       url='http://github.com/fingon/starless',
       author='Markus Stenberg',
       author_email='markus.stenberg@iki.fi',
