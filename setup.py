@@ -7,7 +7,7 @@
 # Copyright (c) 2019 Markus Stenberg
 #
 # Created:       Tue Feb 12 13:12:42 2019 mstenber
-# Last modified: Tue Feb 12 14:41:59 2019 mstenber
+# Last modified: Mon Aug  5 11:14:05 2019 mstenber
 # Edit time:     7 min
 #
 """
@@ -21,7 +21,7 @@ with open("README.md", "r") as fh:
 
 
 setup(name='starless',
-      version='0.2',
+      version='0.3',
       description='Star import eliminator',
       long_description=long_description,
       long_description_content_type="text/markdown",
