@@ -1,1 +1,1 @@
-from .rewriter import rewrite
+from .rewriter import rewrite, rewrite_file

@@ -7,8 +7,8 @@
 # Copyright (c) 2019 Markus Stenberg
 #
 # Created:       Tue Feb 12 13:21:52 2019 mstenber
-# Last modified: Mon Aug  5 10:41:15 2019 mstenber
-# Edit time:     41 min
+# Last modified: Mon Aug  5 11:00:27 2019 mstenber
+# Edit time:     51 min
 #
 """
 
@@ -17,6 +17,7 @@
 import importlib
 import os
 import sys
+import tempfile
 
 from pyflakes.api import check
 from pyflakes.messages import ImportStarUsage, ImportStarUsed
@@ -104,8 +105,12 @@ def rewrite_file(filename):
     if s == s2:
         print(' No difference in', filename)
         return
-    tmp = f'{filename}.bak'
-    with open(tmp, 'w') as f:
-        f.write(s2)
-    os.rename(tmp, filename)
+    with tempfile.NamedTemporaryFile('w', dir=os.path.dirname(filename), delete=False) as f:
+        try:
+            f.write(s2)
+            f.flush()
+            os.rename(f.name, filename)
+        except:
+            os.unlink(f.name)
+            raise
     print()

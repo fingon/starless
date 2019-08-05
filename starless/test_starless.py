@@ -7,12 +7,14 @@
 # Copyright (c) 2019 Markus Stenberg
 #
 # Created:       Tue Feb 12 13:20:08 2019 mstenber
-# Last modified: Mon Aug  5 10:42:10 2019 mstenber
-# Edit time:     5 min
+# Last modified: Mon Aug  5 10:50:58 2019 mstenber
+# Edit time:     8 min
 #
 """
 
 """
+
+import tempfile
 
 import pytest
 
@@ -52,3 +54,12 @@ addbase('whee')
 def test_basic(i, o):
     s = starless.rewrite(i)
     assert s == o
+
+
+def test_rewrite_file():
+    with tempfile.NamedTemporaryFile('w') as f:
+        f.write(basic_in)
+        f.flush()
+        starless.rewrite_file(f.name)
+        with open(f.name, 'r') as g:
+            assert g.read() == basic_out
