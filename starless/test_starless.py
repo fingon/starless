@@ -7,8 +7,8 @@
 # Copyright (c) 2019 Markus Stenberg
 #
 # Created:       Tue Feb 12 13:20:08 2019 mstenber
-# Last modified: Tue Feb 12 14:13:16 2019 mstenber
-# Edit time:     4 min
+# Last modified: Mon Aug  5 10:42:10 2019 mstenber
+# Edit time:     5 min
 #
 """
 
@@ -22,12 +22,14 @@ basic_in = '''
 from sys import *
 
 stdin.write('whee')
+stdout.read()
 '''
 
 basic_out = '''
-from sys import stdin
+from sys import stdin, stdout
 
 stdin.write('whee')
+stdout.read()
 '''
 
 nested_in = '''

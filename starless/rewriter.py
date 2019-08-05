@@ -7,7 +7,7 @@
 # Copyright (c) 2019 Markus Stenberg
 #
 # Created:       Tue Feb 12 13:21:52 2019 mstenber
-# Last modified: Tue Feb 12 14:25:16 2019 mstenber
+# Last modified: Mon Aug  5 10:41:15 2019 mstenber
 # Edit time:     41 min
 #
 """
@@ -67,7 +67,7 @@ class Rewriter:
         for fi, _, l in self.star_imports.values():
             if l:
                 rewrote += len(l)
-                fi.targets = ','.join(l)
+                fi.targets = ', '.join(sorted(l))
         print(f' Rewrote {rewrote} star imports')
 
     def add_undefined(self, s, msg):
